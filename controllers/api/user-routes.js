@@ -20,7 +20,32 @@ router.post("/", async (req, res) => {
        })
     } catch (err) {
         console.error(err)
-        res.status(500).json()
+        res.status(500).json(err)
+    }
+});
+router.post("/login", async (req, res) => {
+    try {
+       const oldDude = await User.findOne({
+        where:{ name: req.body.name }        
+       })
+
+       if(!oldDude){
+        res.status(404).json({message: "no user with that name"})
+       }
+
+       const validPass = oldDude.checkPassword
+
+       req.session.save(() => {
+        req.session.user_id = newDude.id;
+        req.session.name = newDude.name;
+        req.session.loggedIn= true;
+
+        res.status(200).json(userData);
+
+       })
+    } catch (err) {
+        console.error(err)
+        res.status(500).json(err)
     }
 });
 
