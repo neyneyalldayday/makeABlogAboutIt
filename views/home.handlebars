@@ -1,21 +1,25 @@
-<section>
+<section class="home-container">
     <header>
         <h1>W.A.B.A</h1>
         <P>write a blog about-it</P>
     </header>
-    {{#each articleArr as |article|}}
-    <section>
+    <div class="all-articles">
+         {{#each articleArr as |article|}}
+    <section class="article-cards">
         <div class="card-container">
             <div class="card-header">
-                <span class="article-title">{{article.title}}</span>
+                <span class="article-title">Title: {{article.title}}</span>
             </div>
             <div class="article">
-                <span class="article-body">{{article.article_body}}</span>
+                <span class="article-body">Article: {{article.article_body}}</span>
             </div>
-            <div>
-                <span class="article-poster">{{article.user.name}}</span>
+            <div class="poster">
+                <span class="article-poster">posted by: {{article.user.name}}</span>
             </div>
         </div>
     </section>
     {{/each}}
+
+    </div>
+   
 </section>

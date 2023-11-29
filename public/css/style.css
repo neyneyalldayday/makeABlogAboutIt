@@ -1,0 +1,65 @@
+
+
+.home-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.all-articles {
+   display: flex;
+   gap: 2rem;
+   flex-wrap: wrap;
+   justify-content: center;
+   padding: 2rem;
+}
+
+.card-container{
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.6);  
+    max-width: 20rem;
+    min-width: 15rem;
+    
+}
+
+.card-header {
+    background-color: rgb(197, 103, 103);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 1rem;
+}
+.article-title{
+    padding:.5rem;
+}
+
+.article{
+    padding: .5rem;
+    background-color: rgb(198, 203, 179);
+}
+
+.article-body{
+    padding: .5rem;
+}
+
+.article-poster{
+    padding: .5rem;
+}
+
+.poster{
+    background-color: rgb(197, 172, 103);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 1rem;
+}
+
+
+
+
+/* Media query for mobile screens */
+@media screen and (max-width: 420px) {
+    .article-cards {
+        
+    }
+}
+
+
