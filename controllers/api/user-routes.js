@@ -1,4 +1,4 @@
-const {User, Article, Troll} = require("../../models");
+const { User } = require("../../models");
 const router = require("express").Router();
 
 
@@ -23,6 +23,7 @@ router.post("/", async (req, res) => {
         res.status(500).json(err)
     }
 });
+
 router.post("/login", async (req, res) => {
     try {
        const oldDude = await User.findOne({
@@ -33,7 +34,12 @@ router.post("/login", async (req, res) => {
         res.status(404).json({message: "no user with that name"})
        }
 
-       const validPass = oldDude.checkPassword
+       const validPass = oldDude.peepPass(rec.body.password);
+
+       if (!validPass) {
+        res.status(400).json({message: "email or password incorrect"});
+        return;
+       }
 
        req.session.save(() => {
         req.session.user_id = newDude.id;
@@ -49,6 +55,17 @@ router.post("/login", async (req, res) => {
     }
 });
 
+
+router.post("/logout", (req,res) => {
+    if (req.session.loggedIn){
+        req.session.destroy(() => {
+            res.status(204).end()
+        })
+    } else {
+        res.status(404).end();
+    }
+});
+
 //just for testing
 router.get("/all", async (req, res) => {
     try {
@@ -60,14 +77,7 @@ router.get("/all", async (req, res) => {
     }
 });
 
-router.post("/login", async (req, res) => {
-    try {
-        
-    } catch (err) {
-        console.error(err)
-        res.status(500).json()
-    }
-});
+
 
 
 
