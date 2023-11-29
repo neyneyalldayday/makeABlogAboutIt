@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
         
     }
 })
-router.update("/", async (req, res) => {
+router.put("/", async (req, res) => {
     try {
         
     } catch (hands) {
