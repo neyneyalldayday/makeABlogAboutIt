@@ -1,7 +1,5 @@
 const { User } = require("../../models");
 const router = require("express").Router();
-
-
 //create user route
 router.post("/", async (req, res) => {
     try {
@@ -56,7 +54,6 @@ router.post("/login", async (req, res) => {
     }
 });
 
-
 router.post("/logout", (req,res) => {
     if (req.session.loggedIn){
         req.session.destroy(() => {
@@ -77,9 +74,5 @@ router.get("/all", async (req, res) => {
         res.status(500).json()
     }
 });
-
-
-
-
 
 module.exports = router;

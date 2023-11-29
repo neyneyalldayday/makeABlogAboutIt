@@ -10,7 +10,8 @@ router.get("/allArticles", async (req, res) => {
         console.error(err)
         res.status(500).json(err)        
     }
-})
+});
+
 router.post("/", async (req, res) => {
     try {
      const sadPostData = await Article.create(req.body);
@@ -20,7 +21,8 @@ router.post("/", async (req, res) => {
         res.status(500).json(err)
         
     }
-})
+});
+
 router.put("/:articleId", async (req, res) => {
     try {
        const sadPostData = await Article.update(req.body, {
@@ -36,7 +38,8 @@ router.put("/:articleId", async (req, res) => {
         res.status(500).json(err)
         
     }
-})
+});
+
 router.delete("/:articleId", async (req, res) => {
     try {
       const sadPostData = await Article.destroy({
@@ -47,7 +50,6 @@ router.delete("/:articleId", async (req, res) => {
         console.error(err)
         res.status(500).json(err)        
     }
-})
-
+});
 
 module.exports = router
