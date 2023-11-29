@@ -1,7 +1,7 @@
 const { Troll } = require("../../models");
 const router = require("express").Router();
 
-router.get("/all", async (req, res) => {
+router.get("/allTrolls", async (req, res) => {
     try {
    const trolls = await Troll.findAll();
    res.json(trolls)
