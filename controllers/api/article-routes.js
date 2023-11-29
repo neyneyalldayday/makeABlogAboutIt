@@ -21,10 +21,10 @@ router.post("/", async (req, res) => {
         
     }
 })
-router.put("/", async (req, res) => {
+router.put("/:articleId", async (req, res) => {
     try {
        const sadPostData = await Article.update(req.body, {
-       where:{ name: req.params.name  }
+       where:{ id: req.params.articleId }
        }) 
        if(!sadPostData){
         res.status(400).json({ message: "no user with that name"})
@@ -37,10 +37,10 @@ router.put("/", async (req, res) => {
         
     }
 })
-router.delete("/", async (req, res) => {
+router.delete("/:articleId", async (req, res) => {
     try {
       const sadPostData = await Article.destroy({
-        where: { name: req.params.name }
+        where: { id: req.params.articleId}
       })  
       res.status(200).json({sadPostData, message: "article deleted"})
     } catch (err) {
