@@ -3,7 +3,7 @@ const router = require("express").Router();
 
 
 //create user route
-router.use("/", async (req, res) => {
+router.post("/", async (req, res) => {
     try {
         
     } catch (err) {
@@ -12,7 +12,17 @@ router.use("/", async (req, res) => {
     }
 });
 
-router.use("/login", async (req, res) => {
+//just for testing
+router.get("/all", async (req, res) => {
+    try {
+        
+    } catch (err) {
+        console.error(err)
+        res.status(500).json()
+    }
+});
+
+router.post("/login", async (req, res) => {
     try {
         
     } catch (err) {
