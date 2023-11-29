@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
         res.status(404).json({message: "no user with that name"})
        }
 
-       const validPass = oldDude.peepPass(rec.body.password);
+       const validPass = oldDude.peepPassWord(req.body.password);
 
        if (!validPass) {
         res.status(400).json({message: "email or password incorrect"});
@@ -43,11 +43,11 @@ router.post("/login", async (req, res) => {
        }
 
        req.session.save(() => {
-        req.session.user_id = newDude.id;
-        req.session.name = newDude.name;
+        req.session.user_id = oldDude.id;
+        req.session.name = oldDude.name;
         req.session.loggedIn= true;
 
-        res.status(200).json(userData);
+        res.status(200).json(oldDude);
 
        })
     } catch (err) {
