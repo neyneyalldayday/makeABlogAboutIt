@@ -1,5 +1,5 @@
 const {Model, DataTypes} = require("sequelize")
-
+const sequelize = require('../config/connection')
 
 class Article extends Model{}
 
@@ -16,10 +16,11 @@ Article.init(
             type: DataTypes.STRING,
             allowNull: false,            
         },
-        post_body: {
-            type: DataTypes.STRING, 
+        article_body: {
+            type: DataTypes.TEXT, 
             allowNull: false,
-    }
+    },
+},
     {
       sequelize,
       timestamps: false,

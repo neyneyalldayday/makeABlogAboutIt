@@ -1,5 +1,5 @@
 const { Model , DataTypes } = require("sequelize")
-
+const sequelize = require('../config/connection')
 class Troll extends Model{}
 
 Troll.init(
