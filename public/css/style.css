@@ -1,4 +1,28 @@
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
 
+.nav{
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    padding: 2rem;
+    background-color: rgb(244, 235, 215);
+    margin-top: 0;
+}
+
+.nav li{
+    list-style: none;
+}
+.nav li a{
+    color:black;
+}
+
+.header{
+    text-align: center;
+}
 
 .home-container{
     display: flex;
@@ -18,8 +42,7 @@
     border-radius: 5px;
     box-shadow: 3px 3px 6px rgba(0,0,0,0.6);  
     max-width: 20rem;
-    min-width: 15rem;
-    
+    min-width: 15rem;    
 }
 
 .card-header {
@@ -52,7 +75,24 @@
     padding: 1rem;
 }
 
+footer{
+    margin-bottom: 0;  
+    background-color: rgb(246, 16, 16);
+    padding: 3rem;
+}
 
+.social-icons{
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.social-icons li{
+    list-style: none;
+}
+.social-icons li a{
+    color:black;
+}
 
 
 /* Media query for mobile screens */
