@@ -8,14 +8,14 @@ router.post("/", async (req, res) => {
         email: req.body.email, 
         password: req.body.password       
        })
-
+      
        req.session.save(() => {
         req.session.user_id = newDude.id;
         req.session.name = newDude.name;
-        req.session.loggedIn= true;
+        req.session.loggedIn = true;
 
         res.status(200).json(newDude);
-
+        console.log(newDude)
        })
     } catch (err) {
         console.error(err)
@@ -43,7 +43,7 @@ router.post("/login", async (req, res) => {
        req.session.save(() => {
         req.session.user_id = oldDude.id;
         req.session.name = oldDude.name;
-        req.session.loggedIn= true;
+        req.session.loggedIn = true;
 
         res.status(200).json(oldDude);
 

@@ -20,6 +20,34 @@ router.get("/", async (req,res) => {
     }     
 });
 
+router.get("/login", async (req,res) => {
+    try {
+        if(req.session.loggedIn){
+            res.redirect("/")
+            return;
+        } 
+            res.render("login")
+        
+    } catch (error) {
+        console.error(error)
+        res.status(500).json(error)
+    }
+    })
+
+router.get("/signup", async (req,res) => {
+try {
+    if(req.session.loggedIn){
+        res.redirect("/");
+        return;
+    } 
+        res.render("signup")
+    
+} catch (error) {
+    console.error(error)
+    res.status(500).json(error)
+}
+})
+
 
 
 module.exports = router;
